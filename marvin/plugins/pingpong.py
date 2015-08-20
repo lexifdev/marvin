@@ -1,13 +1,9 @@
-import json
 import asyncio
+from .base import BaseHandler
 
 
-class PingPongHandler(object):
+class PingPongHandler(BaseHandler):
     @asyncio.coroutine
-    def on_message(self, sock, message):
+    def on_message(self, message):
         if message.get('text', '').endswith('ping'):
-            yield from sock.send(json.dumps({
-                'type': 'message',
-                'channel': message['channel'],
-                'text': 'pong'
-            }))
+            yield from self.send_text(message['channel'], 'pong')
