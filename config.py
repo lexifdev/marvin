@@ -1,0 +1,1 @@
+TOKEN = '###SLACK BOT TOKEN###'
