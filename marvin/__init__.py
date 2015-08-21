@@ -1,5 +1,4 @@
 import json
-from urllib.parse import urlparse
 import requests
 import websockets
 import websockets.client
