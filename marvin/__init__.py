@@ -14,6 +14,7 @@ class Marvin(object):
             plugins.PrinterHandler(self),
             plugins.PingPongHandler(self),
             plugins.HitchhikerHandler(self),
+            plugins.DiceHandler(self),
         ]
 
     @asyncio.coroutine
