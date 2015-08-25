@@ -10,13 +10,7 @@ class Marvin(object):
     def __init__(self, token):
         self._token = token
         self._sock = None
-        self._handlers = [
-            plugins.PrinterHandler(self),
-            plugins.PingPongHandler(self),
-            plugins.HitchhikerHandler(self),
-            plugins.DiceHandler(self),
-            plugins.AgreeHandler(self),
-        ]
+        self._handlers = [cls(self) for cls in plugins.all_handlers()]
 
     @asyncio.coroutine
     def send_text(self, channel, text):
