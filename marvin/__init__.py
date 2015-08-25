@@ -15,6 +15,7 @@ class Marvin(object):
             plugins.PingPongHandler(self),
             plugins.HitchhikerHandler(self),
             plugins.DiceHandler(self),
+            plugins.AgreeHandler(self),
         ]
 
     @asyncio.coroutine
@@ -24,6 +25,7 @@ class Marvin(object):
             'channel': channel,
             'text': text,
         }))
+        # I'd give you advice, but you wouldn't listen. No one ever does."
 
     @asyncio.coroutine
     def _main_loop(self, url):
