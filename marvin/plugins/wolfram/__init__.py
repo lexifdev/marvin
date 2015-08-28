@@ -18,9 +18,9 @@ class WolframHandler(BaseHandler):
         if text.endswith('는?') or text.endswith('은?'):
             query = text[:-2]
             response = self._wolfram.query(query)
-            pod = yield from response.results
+            results = list(response.results)
 
-            if pod:
-                yield from self.send_text(channel, pod.text)
+            if len(results) > 1:
+                yield from self.send_text(channel, results[0].text)
             else:
                 yield from self.send_text(channel, '뭘 원하시는 건지 모르겠어요')
