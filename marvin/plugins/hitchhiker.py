@@ -1,4 +1,3 @@
-import json
 import asyncio
 import random
 from .base import BaseHandler
