@@ -26,6 +26,10 @@ class Marvin(object):
         self._sock = yield from websockets.connect(url)
         while True:
             raw_message = yield from self._sock.recv()
+
+            if not raw_message:
+                continue
+
             for handler in self._handlers:
                 message = json.loads(raw_message)
                 if 'type' in message and message['type'] == 'message':
