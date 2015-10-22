@@ -20,7 +20,7 @@ class WolframHandler(BaseHandler):
             response = self._wolfram.query(query)
             results = list(response.results)
 
-            if len(results) > 1:
+            if len(results) > 0:
                 yield from self.send_text(channel, results[0].text)
             else:
                 yield from self.send_text(channel, '뭘 원하시는 건지 모르겠어요')
