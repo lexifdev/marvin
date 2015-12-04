@@ -3,7 +3,7 @@ import random
 from .base import BaseHandler
 
 
-class AgreeHandler(BaseHandler):
+class KKHandler(BaseHandler):
     @asyncio.coroutine
     def on_message(self, message):
         text = message.get('text', '').lower()
