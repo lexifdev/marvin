@@ -3,11 +3,14 @@ import requests
 import websockets
 import websockets.client
 import asyncio
+from slacker import Slacker
 from marvin import plugins
 
 
 class Marvin(object):
     def __init__(self, token):
+        self.api = Slacker(token)
+
         self._token = token
         self._sock = None
         self._handlers = [cls(self) for cls in plugins.all_handlers()]
