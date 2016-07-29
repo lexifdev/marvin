@@ -9,5 +9,5 @@ class AgreeHandler(BaseHandler):
         text = message.get('text', '').lower()
         channel = message['channel']
 
-        if text == ':+1:':
+        if text in [':+1:', ':thumbsup:']:
             yield from self.send_text(channel, ':+1:')
